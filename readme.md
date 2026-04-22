@@ -1,8 +1,10 @@
-# Credit Risk Prediction Model
+# Credit Risk – Loan Default Prediction 
 
 **Author:** Nneka Asuzu  
-**Tools Used:** Python, SQL, Scikit-learn, XGBoost, Azure ML, Power BI, Tableau, Git/GitHub  
-**Dataset:** Home Credit Default Risk or Lending Club Loan Data ([Kaggle](https://www.kaggle.com))
+**Domain:** Financial Services / Credit Risk Modeling  
+**Tech Stack:** Python, SQL, Scikit-learn, XGBoost, SHAP, Power BI, Git/GitHub  
+**Dataset:** Kaggle – Home Credit Default Risk or Lending Club Loan Data  
+https://www.kaggle.com
 
 ---
 
@@ -11,99 +13,126 @@ Predict the likelihood of loan default to enable data-driven lending decisions a
 
 ---
 
+
 ## 2. Business Problem
-Lending institutions face losses due to borrowers defaulting. Early identification of high-risk clients is critical to:
 
-- Minimize financial losses  
-- Improve credit decision-making  
-- Optimize portfolio risk segmentation  
+Financial institutions face losses when borrowers default on loans. Traditional credit scoring methods often fail to capture nonlinear patterns in borrower behavior.
 
-Key questions:
+This project explores:
 
-1. Which borrowers have the highest risk of default?  
-2. What features (income, debt, credit utilization) are predictive of defaults?  
-3. How can risk segmentation be applied to guide lending policies?  
+- Predicting probability of loan default
+- Identifying key drivers of credit risk
+- Improving risk segmentation for lending decisions
 
 ---
 
 ## 3. Dataset Overview
-- **Source:** Kaggle – Home Credit Default Risk or Lending Club  
-- **Core Features:** loan amount, income, credit utilization, payment history, employment length  
-- **Optional SQL Integration:** Extract data from internal financial databases  
+  
+The dataset contains borrower-level financial and credit information, including:
 
-**Cleaning & Feature Engineering:**
-- Standardize columns and data types  
-- Handle missing values and outliers  
-- Encode categorical variables  
-- Generate derived features:  
-  - `debt_to_income = debt / income`  
-  - `credit_utilization = balance / credit_limit`  
-  - `loan_income_ratio = loan_amount / income`  
+- Loan characteristics (amount, purpose)
+- Income and employment details
+- Credit history and repayment behavior
+- Credit utilization and outstanding debt
+---
+
+
+## 4. Project Status
+
+This project is currently in development as an end-to-end credit risk modeling pipeline.
+
+
+### Completed Work
+- Data loading and initial exploration
+- Data cleaning (missing values, duplicates, outliers)
+- Initial feature engineering:
+  - Debt-to-income ratio
+  - Credit utilization ratio
+  - Loan-to-income ratio
+- Baseline model (Logistic Regression)
+- Initial experiments with Random Forest and XGBoost
+
+### In Progress
+- Hyperparameter tuning for tree-based models
+- Feature refinement and selection
+- Model evaluation improvements (ROC-AUC, F1-score optimization)
+- SHAP-based explainability analysis
+- Power BI dashboard development
+
+### Planned Work
+- Azure ML deployment pipeline
+- Real-time scoring integration
+- Model monitoring and retraining pipeline
 
 ---
 
-## 4. Methodology
 
-**Phase 1 – Data Preparation**
-- SQL extraction → Python preprocessing → feature engineering  
+# 5. Planned Methodology
 
-**Phase 2 – Modeling**
-- Logistic Regression (baseline)  
-- Random Forest (nonlinear patterns)  
-- XGBoost (high performance)  
-- Hyperparameter tuning via GridSearchCV  
+### 5.1 Modeling Approach
+- Logistic Regression (baseline)
+- Random Forest (non-linear benchmark)
+- XGBoost (final optimized model)
 
-**Phase 3 – Evaluation**
-- Metrics: ROC-AUC, F1-score, precision, recall  
-- Confusion matrix visualization  
-- Feature importance analysis  
+### 5.2 Evaluation Strategy
+- ROC-AUC for ranking performance
+- Precision, recall, and F1-score for imbalance handling
+- Confusion matrix analysis
 
-**Phase 4 – Optional A/B Testing**
-- Compare risk segmentation thresholds across borrower cohorts  
-- Statistical evaluation of thresholds and strategies  
+### 5.3 Feature Importance & Explainability (Planned)
+- SHAP-based interpretability
+- Feature importance ranking for risk drivers
 
 ---
 
-## 5. Pipeline / Architecture
+## 6. Planned Enhancements
 
-SQL Database → Python Preprocessing → Model Training (Azure ML) → Predictions → Power BI / Tableau Dashboard
-
-
----
-
-## 6. Tech Stack
-Python, SQL, Scikit-learn, XGBoost, Azure ML, Power BI, Tableau, Git/GitHub
+- Hyperparameter tuning using GridSearchCV or Optuna  
+- Threshold optimization for risk-sensitive decisioning  
+- Model pipeline structuring using Scikit-learn Pipelines  
+- Power BI dashboard for risk segmentation (in progress)  
+- Azure ML deployment simulation (future phase)  
 
 ---
 
-## 7. Deliverables
-- Preprocessed and feature-engineered datasets  
-- Trained ML models (Logistic Regression, Random Forest, XGBoost)  
-- Risk prediction dashboards  
-- Azure ML retraining and scoring pipeline  
+## 7. Project Pipeline (Planned Architecture)
 
+Data Source (Kaggle Dataset or SQL)  
+→ Data Cleaning & Feature Engineering (Python)  
+→ Model Training (Logistic Regression, Random Forest, XGBoost)  
+→ Evaluation & Threshold Optimization  
+→ Explainability Layer (SHAP)  
+→ Dashboard (Power BI)  
 ---
 
-## 8. Current Status
-**Phase 1:** Data Exploration & Feature Engineering (In Progress)  
-
----
-
-## 9. Folder Structure 📁
+## 8. Folder Structure 📁
 - `/data` → raw and processed datasets  
 - `/notebooks` → EDA and modeling notebooks  
 - `/scripts` → preprocessing and modeling scripts  
 - `/models` → trained model files  
-- `/dashboard` → Power BI/Tableau dashboard files  
+- `/dashboard` → Power BI dashboard files  
 - `/diagrams` → architecture, workflow diagrams  
 - `README.md` → project documentation  
 
 ---
 
+## 9. Key Skills Being Developed
+
+- End-to-end machine learning pipeline design  
+- Financial risk modeling and classification  
+- Feature engineering for structured financial data  
+- Handling class imbalance problems  
+- Model evaluation using ROC-AUC and F1-score  
+- Early-stage explainable AI (SHAP exploration)  
+- Data storytelling for financial decision support  
+
+---
+
+
 ## 10. Next Steps
-1. Train and validate models  
-2. Develop interactive dashboards for risk visualization  
-3. Automate scoring and retraining pipelines via Azure ML  
-4. Integrate SQL pipelines for real-time data extraction
 
-
+1. Improve feature engineering and reduce multicollinearity  
+2. Tune XGBoost model for optimal performance  
+3. Implement SHAP explainability analysis  
+4. Build Power BI dashboard for risk segmentation  
+5. Package pipeline into reusable ML workflow
